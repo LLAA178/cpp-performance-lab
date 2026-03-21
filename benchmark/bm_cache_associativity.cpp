@@ -44,6 +44,35 @@ void BM_AssocConflict(benchmark::State& state) {
 
 }  // namespace
 
-BENCHMARK(BM_AssocFriendly)->Arg(4)->Arg(8)->Arg(16)->Arg(32)->Arg(64)->Unit(benchmark::kMicrosecond);
-BENCHMARK(BM_AssocConflict)->Arg(4)->Arg(8)->Arg(16)->Arg(32)->Arg(64)->Unit(benchmark::kMicrosecond);
-
+BENCHMARK(BM_AssocFriendly)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(6)
+    ->Arg(8)
+    ->Arg(10)
+    ->Arg(12)
+    ->Arg(16)
+    ->Arg(20)
+    ->Arg(24)
+    ->Arg(28)
+    ->Arg(32)
+    ->Arg(40)
+    ->Arg(48)
+    ->Arg(64)
+    ->Unit(benchmark::kMicrosecond);
+BENCHMARK(BM_AssocConflict)
+    ->Arg(2)
+    ->Arg(4)
+    ->Arg(6)
+    ->Arg(8)
+    ->Arg(10)
+    ->Arg(12)
+    ->Arg(16)
+    ->Arg(20)
+    ->Arg(24)
+    ->Arg(28)
+    ->Arg(32)
+    ->Arg(40)
+    ->Arg(48)
+    ->Arg(64)
+    ->Unit(benchmark::kMicrosecond);
