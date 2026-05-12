@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Inlining effects</title>
+  <desc id="desc">Forced inline, noinline, and function-pointer shapes land in the same rough throughput band here.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Inlining effects</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Forced inline, noinline, and function-pointer shapes land in the same rough throughput band here.</text>
+  <rect x="30" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">forced inline</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">boundary disappears</text>
+  <rect x="84" y="148" width="82" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="125.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">loop body</text>
+  <rect x="182" y="148" width="170" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="267.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">x = x*1664525 + 1013904223</text>
+  <line x1="166" y1="163" x2="182" y2="163" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="140" y="236" width="150" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="215.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">no separate call boundary</text>
+  <text x="70" y="302" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">StepInline can be folded directly into the loop's arithmetic chain</text>
+  <rect x="416" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="438" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">forced noinline</text>
+  <text x="438" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">direct call remains</text>
+  <rect x="464" y="148" width="76" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="502.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">loop body</text>
+  <rect x="558" y="148" width="112" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="614.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">call StepNoInline</text>
+  <rect x="684" y="148" width="56" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="712.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">ret</text>
+  <line x1="540" y1="163" x2="558" y2="163" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="670" y1="163" x2="684" y2="163" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="522" y="236" width="150" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="597.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">same arithmetic body</text>
+  <text x="458" y="302" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">the call boundary survives, but the callee still does only one tiny arithmetic step</text>
+  <rect x="802" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="824" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">function pointer</text>
+  <text x="824" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">indirect call remains</text>
+  <rect x="854" y="148" width="136" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="922.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">fn = &amp;StepNoInline</text>
+  <rect x="1010" y="148" width="136" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="1078.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">indirect call fn(x)</text>
+  <rect x="930" y="236" width="156" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="1008.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">target still same body</text>
+  <line x1="990" y1="163" x2="1010" y2="163" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="844" y="302" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">even the function-pointer form stays close, which is why this benchmark reports no meaningful inlining gap</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This code shape is not very inlining-sensitive.</text>
+</svg>

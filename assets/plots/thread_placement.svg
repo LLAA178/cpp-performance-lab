@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Thread placement validation</title>
+  <desc id="desc">Affinity-style experiments are only meaningful if the runtime actually issues and verifies a placement request.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Thread placement validation</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Affinity-style experiments are only meaningful if the runtime actually issues and verifies a placement request.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Instrumented benchmark</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">request and verify</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Current macOS run</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">request path inactive</text>
+  <rect x="92.0" y="156" width="180" height="54" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="182" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">placement request</text>
+  <text x="182" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">hint to runtime / OS</text>
+  <rect x="92.0" y="244" width="180" height="54" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="182" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">verification counters</text>
+  <text x="182" y="284" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">requested? verified?</text>
+  <line x1="182" y1="210" x2="182" y2="244" stroke="#7d8790" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="86" y="314" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">benchmark now records whether the request was real</text>
+  <rect x="677.0" y="160" width="190" height="54" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="772" y="182" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">placement request = 0</text>
+  <text x="772" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">no hint accepted</text>
+  <rect x="677.0" y="244" width="190" height="54" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="772" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">placement verified = 0</text>
+  <text x="772" y="284" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">all three runs are baseline</text>
+  <line x1="772" y1="214" x2="772" y2="244" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Without self-reporting, placement benchmarks can silently measure the default scheduler path.</text>
+</svg>

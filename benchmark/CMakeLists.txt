@@ -130,6 +130,18 @@ add_executable(bm_dynamic_cast_vs_tag language/bm_dynamic_cast_vs_tag.cpp)
 target_link_libraries(bm_dynamic_cast_vs_tag PRIVATE benchmark::benchmark_main)
 target_compile_options(bm_dynamic_cast_vs_tag PRIVATE -O3 -march=native)
 
+add_executable(bm_nrvo object_model/bm_nrvo.cpp)
+target_link_libraries(bm_nrvo PRIVATE benchmark::benchmark_main)
+target_compile_options(bm_nrvo PRIVATE -O3 -march=native)
+
+add_executable(bm_vptr_vtbl object_model/bm_vptr_vtbl.cpp)
+target_link_libraries(bm_vptr_vtbl PRIVATE benchmark::benchmark_main)
+target_compile_options(bm_vptr_vtbl PRIVATE -O3 -march=native)
+
+add_executable(bm_virtual_base_class object_model/bm_virtual_base_class.cpp)
+target_link_libraries(bm_virtual_base_class PRIVATE benchmark::benchmark_main)
+target_compile_options(bm_virtual_base_class PRIVATE -O3 -march=native)
+
 add_executable(bm_aliasing_effects cpu/bm_aliasing_effects.cpp)
 target_link_libraries(bm_aliasing_effects PRIVATE benchmark::benchmark_main)
 target_compile_options(bm_aliasing_effects PRIVATE -O3 -march=native)

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">TLB pressure</title>
+  <desc id="desc">The loop touches one value per page, so page-order and translation reuse become the visible bottleneck.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">TLB pressure</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">The loop touches one value per page, so page-order and translation reuse become the visible bottleneck.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Deterministic page order</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">translation reuse</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Random page order</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">translation churn</text>
+  <rect x="104" y="168" width="68" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="138.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 0</text>
+  <rect x="184" y="168" width="68" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="218.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 1</text>
+  <rect x="264" y="168" width="68" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="298.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 2</text>
+  <rect x="344" y="168" width="68" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="378.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 3</text>
+  <line x1="172" y1="184" x2="184" y2="184" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="252" y1="184" x2="264" y2="184" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="332" y1="184" x2="344" y2="184" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="86" y="248" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">regular page walk</text>
+  <text x="86" y="268" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">TLB translations are easy to reuse</text>
+  <rect x="702" y="162" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="738.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 0</text>
+  <rect x="810" y="138" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="846.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 1</text>
+  <rect x="914" y="216" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="950.0" y="234" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 2</text>
+  <rect x="810" y="248" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="846.0" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 3</text>
+  <rect x="708" y="224" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="744.0" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">page 4</text>
+  <line x1="774" y1="177" x2="810" y2="153" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="882" y1="153" x2="914" y2="231" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="950" y1="231" x2="810" y2="263" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="810" y1="263" x2="780" y2="236" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="674" y="288" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">random page order increases translation churn</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">The benchmark is page-granular by construction, which is why TLB effects stand out earlier than bandwidth effects.</text>
+</svg>

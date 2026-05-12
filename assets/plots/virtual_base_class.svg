@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Virtual base class object model</title>
+  <desc id="desc">Separate the ideas cleanly: inheritance introduces one shared virtual base, object layout places one copy in the most-derived object, and vtable metadata recovers it from different base views.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="560"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Virtual base class object model</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Separate the ideas cleanly: inheritance introduces one shared virtual base, object layout places one copy in the most-derived object, and vtable metadata recovers it from different base views.</text>
+  <rect x="30" y="78" width="356" height="380" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">1. Inheritance</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">class graph only</text>
+  <rect x="124.0" y="156" width="168" height="44" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="208" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualSharedBase</text>
+  <text x="208" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">virtual base</text>
+  <rect x="76.0" y="246" width="132" height="44" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="142" y="268" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualLeft</text>
+  <text x="142" y="286" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">virtual VirtualSharedBase</text>
+  <rect x="206.0" y="246" width="136" height="44" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="274" y="268" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualRight</text>
+  <text x="274" y="286" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">virtual VirtualSharedBase</text>
+  <rect x="119.0" y="336" width="178" height="44" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="208" y="358" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualDiamondA</text>
+  <text x="208" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">inherits left and right</text>
+  <line x1="208" y1="200" x2="142" y2="224" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="208" y1="200" x2="274" y2="224" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="142" y1="290" x2="196" y2="314" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="274" y1="290" x2="220" y2="314" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="72" y="404" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Inheritance only: one shared virtual base is referenced by both intermediate bases.</text>
+  <text x="72" y="424" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This panel is about class relationships, not byte offsets inside the final object.</text>
+  <rect x="416" y="78" width="356" height="380" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="438" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">2. Object layout</text>
+  <text x="438" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">subobject placement</text>
+  <rect x="502" y="148" width="184" height="44" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="594" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualLeft subobject</text>
+  <text x="594" y="183" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">offset +0</text>
+  <rect x="502" y="192" width="184" height="44" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="594" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualRight subobject</text>
+  <text x="594" y="227" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">offset +16</text>
+  <rect x="502" y="236" width="184" height="44" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="594" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualDiamondA::payload</text>
+  <text x="594" y="271" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">offset +32</text>
+  <rect x="502" y="280" width="184" height="48" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="594" y="299" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">VirtualSharedBase subobject</text>
+  <text x="594" y="317" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">single shared copy @ +40</text>
+  <text x="458" y="364" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#5b6770">Measured on this run:</text>
+  <text x="458" y="384" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">left_offset=0, right_offset=16, shared_from_left=40, shared_from_right=24</text>
+  <text x="458" y="404" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">shared_alias=1 means both paths reach the same VirtualSharedBase bytes.</text>
+  <text x="458" y="424" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Object layout only: this panel is about subobject placement inside VirtualDiamondA.</text>
+  <rect x="802" y="78" width="356" height="380" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="824" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">3. vtable-side recovery</text>
+  <text x="824" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">pointer adjustment path</text>
+  <text x="844" y="148" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">Fast path from primary base view</text>
+  <rect x="844" y="170" width="96" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="892.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">VirtualLeft*</text>
+  <rect x="958" y="170" width="118" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="1017.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">vbase delta +40</text>
+  <rect x="1094" y="170" width="104" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="1146.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">shared base</text>
+  <line x1="940" y1="184" x2="958" y2="184" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="1076" y1="184" x2="1094" y2="184" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="844" y="244" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">Recovery from secondary base view</text>
+  <rect x="844" y="266" width="108" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="898.0" y="284" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">VirtualRight*</text>
+  <rect x="972" y="246" width="140" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1042.0" y="264" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">offset_to_top=-16</text>
+  <rect x="972" y="286" width="126" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="1035.0" y="304" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">vbase delta +24</text>
+  <rect x="1122" y="266" width="104" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="1174.0" y="284" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">shared base</text>
+  <line x1="952" y1="281" x2="972" y2="281" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="1112" y1="261" x2="1122" y2="261" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="1098" y1="301" x2="1122" y2="281" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="844" y="350" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Vtable-side metadata only: these chips are lookup steps, not extra object fields.</text>
+  <text x="844" y="370" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">The secondary base view first recovers top-of-object, then finds the shared virtual base.</text>
+  <text x="844" y="390" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This matches the local Itanium-style model: shared vbase plus vtable-driven offset recovery.</text>
+  <text x="50" y="490" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Virtual inheritance changes both layout and addressing rules; the two should not be conflated in one diagram.</text>
+</svg>

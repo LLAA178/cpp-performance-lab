@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Cache associativity</title>
+  <desc id="desc">Capacity can still be available while one cache set overflows and starts self-evicting.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Cache associativity</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Capacity can still be available while one cache set overflows and starts self-evicting.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Friendly stride</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">addresses walk different sets</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Conflict stride</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">addresses alias one set</text>
+  <rect x="84" y="150" width="72" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="120.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">idx 0</text>
+  <rect x="184" y="150" width="72" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="220.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+64B</text>
+  <rect x="284" y="150" width="72" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="320.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+64B</text>
+  <rect x="384" y="150" width="72" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="420.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+64B</text>
+  <line x1="120" y1="165" x2="184" y2="165" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="220" y1="165" x2="284" y2="165" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="320" y1="165" x2="384" y2="165" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="86" y="208" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">stride = 64B, each touch goes to the next line</text>
+  <text x="86" y="228" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">set index rotates instead of piling up in one set</text>
+  <rect x="120" y="270" width="72" height="27" rx="8" fill="#e8f6e8" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="156.0" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">set 0</text>
+  <text x="156" y="318" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">tag 0</text>
+  <rect x="212" y="270" width="72" height="27" rx="8" fill="#e8f6e8" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="248.0" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">set 1</text>
+  <text x="248" y="318" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">tag 1</text>
+  <rect x="304" y="270" width="72" height="27" rx="8" fill="#e8f6e8" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="340.0" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">set 2</text>
+  <text x="340" y="318" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">tag 2</text>
+  <rect x="396" y="270" width="72" height="27" rx="8" fill="#e8f6e8" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="432.0" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">set 3</text>
+  <text x="432" y="318" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">tag 3</text>
+  <text x="86" y="338" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">active lines spread across sets, so ways are not the bottleneck</text>
+  <rect x="674" y="150" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="710.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">idx 0</text>
+  <rect x="774" y="150" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="810.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+8KiB</text>
+  <rect x="874" y="150" width="72" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="910.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+8KiB</text>
+  <rect x="974" y="150" width="72" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="1010.0" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">+8KiB</text>
+  <line x1="710" y1="165" x2="774" y2="165" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="810" y1="165" x2="874" y2="165" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="910" y1="165" x2="974" y2="165" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="676" y="208" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">stride = 8KiB, tag changes but set index repeats</text>
+  <text x="676" y="228" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">the walk keeps hammering one cache set</text>
+  <rect x="798" y="286" width="92" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="844.0" y="304" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">tag A</text>
+  <rect x="798" y="252" width="92" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="844.0" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">tag B</text>
+  <rect x="798" y="218" width="92" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="844.0" y="236" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">tag C</text>
+  <rect x="798" y="184" width="92" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="844.0" y="202" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">tag D</text>
+  <text x="936" y="252" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#c14d4d">same set</text>
+  <text x="936" y="272" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">limited ways</text>
+  <text x="936" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">new tag arrives</text>
+  <text x="936" y="324" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">old line gets evicted</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Associativity failures are mapping failures: enough total cache, but not enough ways in one set.</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Container lookup</title>
+  <desc id="desc">Key-set size and miss rate matter as much as the container class name.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Container lookup</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Key-set size and miss rate matter as much as the container class name.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Hot-hit set</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">cache-friendly lookup</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Mixed large set</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">misses become visible</text>
+  <rect x="84" y="134" width="80" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="124.0" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">256 keys</text>
+  <rect x="184" y="134" width="82" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="225.0" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">100% hits</text>
+  <rect x="286" y="134" width="100" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="336.0" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">query stream</text>
+  <rect x="408" y="134" width="84" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="450.0" y="152" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">hot cache</text>
+  <rect x="100" y="226" width="144" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="172.0" y="244" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">hash -&gt; bucket -&gt; node</text>
+  <rect x="266" y="226" width="112" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="322.0" y="244" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">tree compares</text>
+  <rect x="400" y="226" width="136" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="468.0" y="244" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">binary search probes</text>
+  <text x="76" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">with a tiny hot keyset, all three stay warm, but hashing still finds the target with the shortest common path</text>
+  <rect x="682" y="132" width="84" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="724.0" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">64K keys</text>
+  <rect x="786" y="132" width="96" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="834.0" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">50% misses</text>
+  <rect x="902" y="132" width="104" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="954.0" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">query ^ mask</text>
+  <rect x="1026" y="132" width="108" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="1080.0" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">not found often</text>
+  <rect x="692" y="224" width="212" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="798.0" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">unordered_map: hash then miss bucket/chain</text>
+  <rect x="926" y="224" width="190" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="1021.0" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">sorted vector: lower_bound compares</text>
+  <rect x="768" y="270" width="218" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="877.0" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">map: tree walk with many pointer compares</text>
+  <text x="670" y="322" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">misses make every structure pay more control work, which is why the map and sorted-vector gap narrows here</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Choose lookup structure by workload shape, not by abstract container reputation.</text>
+</svg>

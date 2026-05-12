@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">Clock call overhead</title>
+  <desc id="desc">The benchmark compares several timestamp APIs that all end up paying a similar fixed entry cost.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="480"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Clock call overhead</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">The benchmark compares several timestamp APIs that all end up paying a similar fixed entry cost.</text>
+  <rect x="30" y="78" width="270" height="248" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">steady_clock</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">C++ monotonic wrapper</text>
+  <rect x="56" y="142" width="104" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="108.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">steady_clock::now()</text>
+  <rect x="176" y="142" width="84" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="218.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">chrono wrapper</text>
+  <rect x="82" y="222" width="152" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="158.0" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">monotonic timestamp source</text>
+  <line x1="160" y1="157" x2="176" y2="157" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="64" y="292" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">C++ API wraps a lower-level clock source and then converts to duration count</text>
+  <rect x="320" y="78" width="270" height="248" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="342" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">system_clock</text>
+  <text x="342" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">C++ wall-clock wrapper</text>
+  <rect x="346" y="142" width="108" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="400.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">system_clock::now()</text>
+  <rect x="468" y="142" width="84" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="510.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">chrono wrapper</text>
+  <rect x="370" y="222" width="152" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="446.0" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">wall-clock timestamp source</text>
+  <line x1="454" y1="157" x2="468" y2="157" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="354" y="292" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">similar fixed call path, just a different underlying clock domain</text>
+  <rect x="610" y="78" width="270" height="248" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="632" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">clock_gettime</text>
+  <text x="632" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">POSIX monotonic path</text>
+  <rect x="646" y="142" width="98" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="695.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">clock_gettime</text>
+  <rect x="758" y="142" width="112" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="814.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">CLOCK_MONOTONIC[_RAW]</text>
+  <rect x="692" y="222" width="90" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="737.0" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">timespec ts</text>
+  <line x1="744" y1="157" x2="758" y2="157" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="646" y="292" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">more direct POSIX entry point, but still a full timestamp fetch per iteration</text>
+  <rect x="900" y="78" width="270" height="248" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="922" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">gettimeofday</text>
+  <text x="922" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">legacy time API</text>
+  <rect x="940" y="142" width="92" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="986.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">gettimeofday</text>
+  <rect x="1046" y="142" width="76" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1084.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">timeval tv</text>
+  <rect x="958" y="222" width="148" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="1032.0" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">legacy wall-clock path</text>
+  <line x1="1032" y1="157" x2="1046" y2="157" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="934" y="292" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">older API, but on this platform it still lands in the same rough fixed-cost band</text>
+  <text x="50" y="438" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Clock choice matters mainly in very tight loops.</text>
+</svg>

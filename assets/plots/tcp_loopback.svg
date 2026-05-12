@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">TCP loopback vs Unix stream</title>
+  <desc id="desc">Streaming throughput and request/response latency stress different parts of the local transport path.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">TCP loopback vs Unix stream</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Streaming throughput and request/response latency stress different parts of the local transport path.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Unidirectional stream</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">send only</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Ping-pong</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">send + wake + reply</text>
+  <rect x="92" y="156.0" width="108" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="146.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">sender</text>
+  <text x="146.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">stream writes</text>
+  <rect x="232" y="156.0" width="120" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="292.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">TCP / Unix</text>
+  <text x="292.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">one-way stream</text>
+  <rect x="384" y="156.0" width="108" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="438.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">receiver</text>
+  <text x="438.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">stream reads</text>
+  <line x1="200" y1="184" x2="232" y2="184" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="352" y1="184" x2="384" y2="184" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="92" y="258" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">one direction hides some transport differences</text>
+  <rect x="714" y="154" width="92" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="760.0" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">request</text>
+  <rect x="834" y="154" width="112" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="890.0" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">kernel path</text>
+  <rect x="974" y="154" width="92" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1020.0" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">response</text>
+  <line x1="806" y1="169" x2="834" y2="169" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="946" y1="169" x2="974" y2="169" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="836" y="246" width="168" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="920.0" y="264" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">every RTT pays the path twice</text>
+  <text x="674" y="314" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">round-trip latency amplifies transport overhead</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">If you only benchmark one-way throughput, you can miss the real latency ranking entirely.</text>
+</svg>

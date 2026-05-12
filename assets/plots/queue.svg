@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">1P1C queue transfer</title>
+  <desc id="desc">The tuned SPSC ring removes the central lock and reduces per-message coordination to bounded metadata exchange.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">1P1C queue transfer</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">The tuned SPSC ring removes the central lock and reduces per-message coordination to bounded metadata exchange.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Mutex queue</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">serialized access</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">SPSC ring</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">split producer / consumer ownership</text>
+  <rect x="75.0" y="146" width="150" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="150" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">producer</text>
+  <text x="150" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">lock -&gt; push</text>
+  <rect x="225.0" y="216" width="150" height="56" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="300" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">std::queue</text>
+  <text x="300" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">shared head/tail</text>
+  <rect x="375.0" y="146" width="150" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="450" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">consumer</text>
+  <text x="450" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">lock -&gt; pop</text>
+  <line x1="225" y1="174" x2="300" y2="216" stroke="#7a5c9e" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="450" y1="174" x2="375" y2="216" stroke="#7a5c9e" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="90" y="294" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">each transfer enters the same critical section</text>
+  <rect x="661.0" y="154" width="150" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="736" y="176" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">producer</text>
+  <text x="736" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">write slot + head</text>
+  <rect x="809.0" y="216" width="170" height="70" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="894" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">ring buffer</text>
+  <text x="894" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">producer owns head consumer owns tail</text>
+  <rect x="977.0" y="154" width="150" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1052" y="176" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">consumer</text>
+  <text x="1052" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">read slot + tail</text>
+  <line x1="811" y1="182" x2="894" y2="216" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="1052" y1="182" x2="964" y2="216" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="688" y="302" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">shared metadata shrinks to head/tail publication</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Batching changes how often the expensive coordination path is paid.</text>
+</svg>

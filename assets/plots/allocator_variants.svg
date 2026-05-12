@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Allocator variants</title>
+  <desc id="desc">Allocation cost is heavily shaped by how much bookkeeping and recycling policy each allocator performs.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Allocator variants</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Allocation cost is heavily shaped by how much bookkeeping and recycling policy each allocator performs.</text>
+  <rect x="30" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">general allocators</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">flexible path</text>
+  <rect x="92" y="170" width="100" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="142.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">new/delete</text>
+  <rect x="218" y="170" width="112" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="274.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">malloc/free</text>
+  <text x="78" y="246" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">general-purpose allocators balance flexibility and reuse</text>
+  <rect x="416" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="438" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">PMR resources</text>
+  <text x="438" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">different reuse models</text>
+  <rect x="498" y="156" width="150" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="573.0" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">monotonic buffer</text>
+  <rect x="656" y="156" width="108" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="710.0" y="174" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">bump pointer</text>
+  <line x1="648" y1="171" x2="656" y2="171" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="520" y="244" width="196" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="618.0" y="262" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">unsynchronized_pool_resource</text>
+  <text x="472" y="314" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">different PMR resources can have completely different recycling paths</text>
+  <rect x="802" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="824" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">arena pool</text>
+  <text x="824" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">fixed-size local reuse</text>
+  <rect x="922" y="170" width="132" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="988.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">arena free list</text>
+  <rect x="1040" y="170" width="98" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1089.0" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">Node[] storage</text>
+  <line x1="1054" y1="185" x2="1040" y2="185" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="850" y="246" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">fixed-size single-owner reuse makes the custom arena very cheap</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">The same PMR family can land in very different regimes because the resource policy is the real mechanism.</text>
+</svg>

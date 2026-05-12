@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Memory pool topology</title>
+  <desc id="desc">Pooling helps only when the free path matches the ownership pattern of the benchmark.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Memory pool topology</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Pooling helps only when the free path matches the ownership pattern of the benchmark.</text>
+  <rect x="30" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">new/delete</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">general allocator</text>
+  <rect x="123.0" y="154" width="170" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="208" y="176" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">allocate</text>
+  <text x="208" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">global allocator</text>
+  <rect x="123.0" y="232" width="170" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="208" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">free</text>
+  <text x="208" y="272" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">global allocator</text>
+  <line x1="208" y1="210" x2="208" y2="232" stroke="#7d8790" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="416" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="438" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">locked pool</text>
+  <text x="438" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">shared free list</text>
+  <rect x="509.0" y="146" width="170" height="56" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="594" y="168" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">threads</text>
+  <text x="594" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">all hit one mutex</text>
+  <rect x="509.0" y="236" width="170" height="56" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="594" y="258" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">free list</text>
+  <text x="594" y="276" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">one shared pool</text>
+  <line x1="594" y1="202" x2="594" y2="236" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="802" y="78" width="356" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="824" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">thread-local pool</text>
+  <text x="824" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">mostly local reuse</text>
+  <rect x="852.0" y="176" width="112" height="56" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="908" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">T0 pool</text>
+  <text x="908" y="216" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">local</text>
+  <rect x="996.0" y="176" width="112" height="56" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="1052" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">T1 pool</text>
+  <text x="1052" y="216" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">local</text>
+  <text x="980" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">most alloc/free traffic stays off the shared path</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">A pool is not automatically faster; the synchronization topology decides whether reuse pays off.</text>
+</svg>

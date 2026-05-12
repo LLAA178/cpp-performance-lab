@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Pipe vs shared-memory handoff</title>
+  <desc id="desc">For tiny messages in a tight loop, avoiding a kernel round-trip often matters more than the payload copy itself.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Pipe vs shared-memory handoff</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">For tiny messages in a tight loop, avoiding a kernel round-trip often matters more than the payload copy itself.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Pipe</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">syscall path</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Shared mailbox</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">userspace polling path</text>
+  <rect x="70" y="148" width="68" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="104.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">writer</text>
+  <rect x="156" y="148" width="82" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="197.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">write(8B)</text>
+  <rect x="258" y="148" width="80" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="298.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">pipe buf</text>
+  <rect x="356" y="148" width="78" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="395.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">read(8B)</text>
+  <rect x="452" y="148" width="66" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="485.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">reader</text>
+  <line x1="138" y1="163" x2="156" y2="163" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="238" y1="163" x2="258" y2="163" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="338" y1="163" x2="356" y2="163" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="434" y1="163" x2="452" y2="163" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="144" y="242" width="214" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="251.0" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">kernel crossing on both sides</text>
+  <rect x="358" y="242" width="176" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="446.0" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">payload copied through pipe buffer</text>
+  <text x="84" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">the handoff path is write -&gt; kernel buffer -&gt; read for every 8-byte message</text>
+  <rect x="676" y="138" width="112" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="732.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">while(full!=0)</text>
+  <rect x="808" y="138" width="112" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="864.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">payload=value</text>
+  <rect x="940" y="138" width="72" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="976.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">full=1</text>
+  <rect x="696" y="238" width="112" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="752.0" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">while(full==0)</text>
+  <rect x="828" y="238" width="108" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="882.0" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">load payload</text>
+  <rect x="956" y="238" width="72" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="992.0" y="256" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">full=0</text>
+  <line x1="788" y1="153" x2="808" y2="153" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="920" y1="153" x2="940" y2="153" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="808" y1="253" x2="828" y2="253" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="936" y1="253" x2="956" y2="253" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="976" y1="174" x2="976" y2="230" stroke="#4f9b5d" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+  <text x="992" y="208" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#4f9b5d">flag ping-pong</text>
+  <text x="674" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">payload and full flag live in one shared page, so the hot path stays in userspace</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This benchmark isolates coordination cost, not durability or cross-process isolation requirements.</text>
+</svg>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">NRVO lifecycle comparison</title>
+  <desc id="desc">Copy return materializes two objects and duplicates resources, move return materializes two objects and transfers ownership, and NRVO constructs directly in the caller result slot.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="460"/>
+  
+<style>
+  .bg { fill: #f7f5ef; }
+  .panel { fill: #fffdf8; stroke: #d8cfbd; stroke-width: 2; rx: 18; }
+  .title { font: 700 24px Georgia, serif; fill: #24313a; }
+  .subtitle { font: 500 15px Georgia, serif; fill: #52606b; }
+  .label { font: 700 16px Georgia, serif; fill: #24313a; }
+  .text { font: 14px Georgia, serif; fill: #34424d; }
+  .small { font: 13px Georgia, serif; fill: #5d6a74; }
+  .boxLocal { fill: #d7ebff; stroke: #4c87c6; stroke-width: 2; rx: 12; }
+  .boxResult { fill: #dff4de; stroke: #5e9b5c; stroke-width: 2; rx: 12; }
+  .boxRes { fill: #ffe5bf; stroke: #cb8b2d; stroke-width: 2; rx: 12; }
+  .boxGone { fill: #f3e4e4; stroke: #b77a7a; stroke-width: 2; stroke-dasharray: 6 5; rx: 12; }
+  .arrowCopy { stroke: #b04a4a; stroke-width: 3; fill: none; marker-end: url(#arrowCopy); }
+  .arrowMove { stroke: #8a5a18; stroke-width: 3; fill: none; marker-end: url(#arrowMove); }
+  .arrowNrvo { stroke: #2a7a65; stroke-width: 3; fill: none; marker-end: url(#arrowNrvo); }
+  .arrowThin { stroke: #7b8791; stroke-width: 2; fill: none; marker-end: url(#arrowThin); }
+  .legendCopy { fill: #b04a4a; }
+  .legendMove { fill: #8a5a18; }
+  .legendNrvo { fill: #2a7a65; }
+</style>
+<defs>
+  <marker id="arrowCopy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#b04a4a"/>
+  </marker>
+  <marker id="arrowMove" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a5a18"/>
+  </marker>
+  <marker id="arrowNrvo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a7a65"/>
+  </marker>
+  <marker id="arrowThin" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b8791"/>
+  </marker>
+</defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="460"/>
+  <text class="title" x="46" y="44">Return-by-Value Object Lifecycles</text>
+  <text class="subtitle" x="46" y="72">Why copy return, move return, and NRVO have different cost models even when source code looks similar.</text>
+  <rect class="panel" x="36" y="98" width="356" height="312"/>
+  <rect class="panel" x="422" y="98" width="356" height="312"/>
+  <rect class="panel" x="808" y="98" width="356" height="312"/>
+  <text class="label" x="62" y="132">1. Copy Return</text>
+  <text class="small" x="62" y="154">Two full objects exist, and resources are duplicated.</text>
+  <rect class="boxLocal" x="62" y="182" width="118" height="62"/>
+  <text class="text" x="81" y="207">callee local</text>
+  <text class="text" x="105" y="226">x</text>
+  <rect class="boxRes" x="74" y="272" width="94" height="46"/>
+  <text class="text" x="97" y="300">heap data A</text>
+  <rect class="boxResult" x="236" y="182" width="118" height="62"/>
+  <text class="text" x="258" y="207">caller result</text>
+  <text class="text" x="286" y="226">r</text>
+  <rect class="boxRes" x="248" y="272" width="94" height="46"/>
+  <text class="text" x="271" y="300">heap data B</text>
+  <path class="arrowThin" d="M 121 244 L 121 270"/>
+  <path class="arrowThin" d="M 295 244 L 295 270"/>
+  <path class="arrowCopy" d="M 180 213 C 202 213, 214 213, 236 213"/>
+  <path class="arrowCopy" d="M 168 295 C 196 334, 226 334, 248 295"/>
+  <text class="small" x="120" y="352">copy-construct result from local</text>
+  <text class="small" x="93" y="373">source and destination own different buffers</text>
+  <text class="label" x="448" y="132">2. Move Return</text>
+  <text class="small" x="448" y="154">Two objects exist, but the destination steals resources.</text>
+  <rect class="boxLocal" x="448" y="182" width="118" height="62"/>
+  <text class="text" x="467" y="207">callee local</text>
+  <text class="text" x="491" y="226">x</text>
+  <rect class="boxGone" x="460" y="272" width="94" height="46"/>
+  <text class="text" x="482" y="300">moved-from</text>
+  <rect class="boxResult" x="622" y="182" width="118" height="62"/>
+  <text class="text" x="644" y="207">caller result</text>
+  <text class="text" x="672" y="226">r</text>
+  <rect class="boxRes" x="634" y="272" width="94" height="46"/>
+  <text class="text" x="657" y="300">heap data A</text>
+  <path class="arrowThin" d="M 507 244 L 507 270"/>
+  <path class="arrowThin" d="M 681 244 L 681 270"/>
+  <path class="arrowMove" d="M 566 213 C 588 213, 600 213, 622 213"/>
+  <path class="arrowMove" d="M 554 295 C 584 334, 612 334, 634 295"/>
+  <text class="small" x="507" y="352">move-construct result from local</text>
+  <text class="small" x="486" y="373">resource ownership is transferred, not duplicated</text>
+  <text class="label" x="834" y="132">3. NRVO / Elided Return</text>
+  <text class="small" x="834" y="154">Only one object is materialized: the local is the result slot.</text>
+  <rect class="boxResult" x="900" y="182" width="170" height="62"/>
+  <text class="text" x="923" y="207">caller result slot</text>
+  <text class="text" x="922" y="226">also serves as local x</text>
+  <rect class="boxRes" x="938" y="272" width="94" height="46"/>
+  <text class="text" x="961" y="300">heap data A</text>
+  <path class="arrowThin" d="M 985 244 L 985 270"/>
+  <path class="arrowNrvo" d="M 854 213 C 882 213, 888 213, 900 213"/>
+  <text class="small" x="846" y="202">construct directly into final slot</text>
+  <text class="small" x="878" y="352">no copy, no move, no extra destructor for a temp</text>
+  <text class="small" x="881" y="373">source object never exists separately</text>
+  <rect x="44" y="426" width="14" height="14" class="legendCopy"/>
+  <text class="small" x="66" y="438">copy path: duplicate object state and resources</text>
+  <rect x="382" y="426" width="14" height="14" class="legendMove"/>
+  <text class="small" x="404" y="438">move path: separate objects, transferred ownership</text>
+  <rect x="760" y="426" width="14" height="14" class="legendNrvo"/>
+  <text class="small" x="782" y="438">NRVO path: single object, direct construction into destination</text>
+</svg>

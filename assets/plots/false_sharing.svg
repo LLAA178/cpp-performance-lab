@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">False sharing</title>
+  <desc id="desc">The benchmark writes two different atomics, but performance is determined by whether those atomics live on the same cache line.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">False sharing</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">The benchmark writes two different atomics, but performance is determined by whether those atomics live on the same cache line.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Adjacent atomics</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">one cache line</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Padded atomics</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">separate lines</text>
+  <rect x="92" y="146" width="180" height="54" rx="12" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="182" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">counter a</text>
+  <rect x="92" y="204" width="180" height="54" rx="12" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="182" y="236" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">counter b</text>
+  <rect x="276" y="146" width="52" height="112" rx="10" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="302" y="206" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">same</text>
+  <text x="302" y="222" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">cache</text>
+  <text x="302" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">line</text>
+  <line x1="272" y1="173" x2="276" y2="173" stroke="#c14d4d" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+  <line x1="272" y1="231" x2="276" y2="231" stroke="#c14d4d" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+  <text x="82" y="272" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">independent variables share one coherence unit</text>
+  <rect x="668" y="146" width="114" height="54" rx="12" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <rect x="808" y="146" width="114" height="54" rx="12" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="725" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">counter a</text>
+  <text x="865" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">counter b</text>
+  <rect x="668" y="214" width="114" height="42" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <rect x="808" y="214" width="114" height="42" rx="12" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="725" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#26323a">line 0</text>
+  <text x="865" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#26323a">line 1</text>
+  <line x1="780" y1="173" x2="808" y2="173" stroke="#2a9d8f" stroke-width="2.4" fill="none" marker-end="url(#arrow)"/>
+  <text x="672" y="272" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">padding moves the writes onto separate cache lines</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">The unit of ownership is the cache line, not the C++ variable.</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Pipe vs socketpair</title>
+  <desc id="desc">Both are kernel IPC, but the Unix stream socket pair has a heavier abstraction path here.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Pipe vs socketpair</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Both are kernel IPC, but the Unix stream socket pair has a heavier abstraction path here.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Pipe</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">one-way kernel buffer</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Unix stream socketpair</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">two endpoints plus stream layer</text>
+  <rect x="84" y="148" width="102" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="135.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">write(fd[1])</text>
+  <rect x="208" y="148" width="98" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="257.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">pipe buffer</text>
+  <rect x="328" y="148" width="96" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="376.0" y="166" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">read(fd[0])</text>
+  <line x1="186" y1="163" x2="208" y2="163" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="306" y1="163" x2="328" y2="163" stroke="#4f9b5d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="152" y="236" width="162" height="27" rx="8" fill="#f3faf3" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="233.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">unidirectional byte stream</text>
+  <rect x="340" y="236" width="120" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="400.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">narrow IPC path</text>
+  <text x="84" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">the benchmark just needs one-way message flow, which matches the simpler pipe abstraction</text>
+  <rect x="668" y="138" width="98" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="717.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">send(sock[1])</text>
+  <rect x="784" y="138" width="100" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="834.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">socket endpoint</text>
+  <rect x="902" y="138" width="126" height="27" rx="8" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="965.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">stream socket layer</text>
+  <rect x="1046" y="138" width="94" height="27" rx="8" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="1093.0" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">recv(sock[0])</text>
+  <line x1="766" y1="153" x2="784" y2="153" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="884" y1="153" x2="902" y2="153" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="1028" y1="153" x2="1046" y2="153" stroke="#c08a28" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <rect x="774" y="236" width="236" height="27" rx="8" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="892.0" y="254" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">two socket endpoints + stream semantics</text>
+  <text x="668" y="304" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">same-host Unix stream sockets carry heavier endpoint and protocol machinery than the pipe path here</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This is about IPC path weight, not network semantics.</text>
+</svg>

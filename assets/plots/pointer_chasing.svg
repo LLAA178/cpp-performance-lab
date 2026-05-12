@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Pointer chasing</title>
+  <desc id="desc">The load address itself comes from the previous load, so latency cannot be hidden by regular streaming.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Pointer chasing</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">The load address itself comes from the previous load, so latency cannot be hidden by regular streaming.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Sequential list</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">regular next step</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Pointer chase</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">address dependency chain</text>
+  <rect x="110" y="168" width="56" height="27" rx="8" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="138.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">0</text>
+  <rect x="196" y="168" width="56" height="27" rx="8" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="224.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">1</text>
+  <rect x="282" y="168" width="56" height="27" rx="8" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="310.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">2</text>
+  <rect x="368" y="168" width="56" height="27" rx="8" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="396.0" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="700" font-style="normal" fill="#26323a">3</text>
+  <line x1="166" y1="183" x2="196" y2="183" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="252" y1="183" x2="282" y2="183" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="338" y1="183" x2="368" y2="183" stroke="#2a9d8f" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="82" y="228" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">next pointer is predictable</text>
+  <text x="82" y="248" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">prefetcher can stay ahead</text>
+  <rect x="706" y="170" width="54" height="28" rx="9" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="733" y="188" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">0</text>
+  <rect x="814" y="140" width="54" height="28" rx="9" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="841" y="158" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">1</text>
+  <rect x="922" y="208" width="54" height="28" rx="9" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="949" y="226" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">2</text>
+  <rect x="820" y="246" width="54" height="28" rx="9" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="847" y="264" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">3</text>
+  <rect x="724" y="224" width="54" height="28" rx="9" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="751" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-weight="700" font-style="normal" fill="#26323a">4</text>
+  <line x1="760" y1="184" x2="814" y2="154" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="868" y1="154" x2="922" y2="222" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="948" y1="222" x2="820" y2="260" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="784" y1="246" x2="724" y2="238" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="672" y="286" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">each step depends on the previous load</text>
+  <text x="672" y="306" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">hardware cannot prefetch an unknown next address</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">This is a latency story: the chain blocks overlap, not a bandwidth story.</text>
+</svg>

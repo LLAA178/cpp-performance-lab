@@ -45,6 +45,8 @@ cmake --build build -j
 ./build/benchmark/bm_exception_vs_error_code --benchmark_min_time=0.2s
 ./build/benchmark/bm_variant_vs_virtual --benchmark_min_time=0.2s
 ./build/benchmark/bm_dynamic_cast_vs_tag --benchmark_min_time=0.2s
+./build/benchmark/bm_nrvo --benchmark_min_time=0.2s
+./build/benchmark/bm_virtual_base_class --benchmark_min_time=0.2s
 ./build/benchmark/bm_aliasing_effects --benchmark_min_time=0.2s
 ./build/benchmark/bm_container_lookup --benchmark_min_time=0.2s
 ./build/benchmark/bm_socket_loopback --benchmark_min_time=0.2s

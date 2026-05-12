@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-thread free</title>
+  <desc id="desc">Allocator designs that are fine under single-thread reuse can collapse when allocation and deallocation happen on different threads.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="430"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Cross-thread free</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Allocator designs that are fine under single-thread reuse can collapse when allocation and deallocation happen on different threads.</text>
+  <rect x="30" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="52" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Benchmark shape</text>
+  <text x="52" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">allocate on one thread, free on another</text>
+  <rect x="620" y="78" width="550" height="280" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="642" y="110" text-anchor="start" font-family="Georgia, serif" font-size="17" font-weight="700" font-style="normal" fill="#26323a">Why pools struggle</text>
+  <text x="642" y="130" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">recycle path is no longer local</text>
+  <rect x="88" y="156.0" width="118" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="147.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">producer</text>
+  <text x="147.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">allocate</text>
+  <rect x="242" y="156.0" width="118" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="301.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">slots[i]</text>
+  <text x="301.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">hand off</text>
+  <rect x="396" y="156.0" width="118" height="56" rx="12" fill="#eef6ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="455.0" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">consumer</text>
+  <text x="455.0" y="197" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">free</text>
+  <line x1="206" y1="184" x2="242" y2="184" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <line x1="360" y1="184" x2="396" y2="184" stroke="#4c87c6" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="82" y="258" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">ownership crosses threads on every object</text>
+  <rect x="712" y="136.0" width="156" height="56" rx="12" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="790.0" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">shared pool / sync pool</text>
+  <text x="790.0" y="177" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">central synchronization</text>
+  <rect x="712" y="218.0" width="156" height="56" rx="12" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="790.0" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">free on another thread</text>
+  <text x="790.0" y="259" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="400" font-style="normal" fill="#5b6770">remote recycle path</text>
+  <line x1="790" y1="220" x2="790" y2="246" stroke="#c14d4d" stroke-width="2.1" fill="none" marker-end="url(#arrow)"/>
+  <text x="674" y="322" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">remote free turns internal synchronization into the dominant cost</text>
+  <text x="50" y="386" text-anchor="start" font-family="Georgia, serif" font-size="12" font-weight="400" font-style="normal" fill="#5b6770">Cross-thread ownership transfer is one of the harshest allocator stress patterns.</text>
+</svg>

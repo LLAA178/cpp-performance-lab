@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Cache hierarchy working-set curve</title>
+  <desc id="desc">Throughput falls as the working set leaves L1, then L2, then the last-level cache and eventually DRAM.</desc>
+  <style>
+  .bg { fill: #f7f4ec; }
+  .title { font: 700 23px Georgia, serif; fill: #26323a; }
+  .subtitle { font: 500 14px Georgia, serif; fill: #5b6770; }
+  .label { font: 700 16px Georgia, serif; fill: #26323a; }
+  .text { font: 13px Georgia, serif; fill: #26323a; }
+  .small { font: 12px Georgia, serif; fill: #5b6770; }
+</style>
+  <defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#26323a"/>
+  </marker>
+</defs>
+  <rect class="bg" x="0" y="0" width="1200" height="460"/>
+  <text x="40" y="42" text-anchor="start" font-family="Georgia, serif" font-size="19" font-weight="700" font-style="normal" fill="#26323a">Cache Levels</text>
+  <text x="40" y="65" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">Crossing a cache boundary changes the cost model.</text>
+  <rect x="30" y="78" width="570" height="300" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <rect x="620" y="78" width="540" height="300" rx="18" fill="#fffdf8" stroke="#d7cfbf" stroke-width="2"/>
+  <text x="54" y="112" text-anchor="start" font-family="Georgia, serif" font-size="18" font-weight="700" font-style="normal" fill="#26323a">Hierarchy</text>
+  <rect x="78" y="140" width="180" height="34" rx="12" fill="#dff0ff" stroke="#7d8790" stroke-width="2"/>
+  <text x="98" y="162" text-anchor="start" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">L1D</text>
+  <rect x="78" y="194" width="260" height="34" rx="12" fill="#e7f6de" stroke="#7d8790" stroke-width="2"/>
+  <text x="98" y="216" text-anchor="start" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">L2</text>
+  <rect x="78" y="248" width="350" height="34" rx="12" fill="#fff0d7" stroke="#7d8790" stroke-width="2"/>
+  <text x="98" y="270" text-anchor="start" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">L3</text>
+  <rect x="78" y="302" width="440" height="34" rx="12" fill="#f8e2e2" stroke="#7d8790" stroke-width="2"/>
+  <text x="98" y="324" text-anchor="start" font-family="Georgia, serif" font-size="14" font-weight="700" font-style="normal" fill="#26323a">DRAM</text>
+  <text x="78" y="374" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">each bigger step adds latency and often more misses</text>
+  <text x="650" y="112" text-anchor="start" font-family="Georgia, serif" font-size="18" font-weight="700" font-style="normal" fill="#26323a">Mechanism</text>
+  <path d="M 686 330 C 748 270, 796 260, 840 220 S 960 152, 1076 128" stroke="#26323a" stroke-width="3.2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="690" y="286" width="130" height="32" rx="10" fill="#dff0ff" stroke="#4c87c6" stroke-width="2"/>
+  <text x="755" y="307" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">L1 hits</text>
+  <rect x="822" y="232" width="130" height="32" rx="10" fill="#e7f6de" stroke="#4f9b5d" stroke-width="2"/>
+  <text x="887" y="253" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">L2 hits</text>
+  <rect x="954" y="178" width="130" height="32" rx="10" fill="#fff0d7" stroke="#c08a28" stroke-width="2"/>
+  <text x="1019" y="199" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">L3 hits</text>
+  <rect x="1086" y="124" width="48" height="32" rx="10" fill="#f8e2e2" stroke="#c14d4d" stroke-width="2"/>
+  <text x="1030" y="140" text-anchor="end" font-family="Georgia, serif" font-size="13" font-weight="700" font-style="normal" fill="#26323a">DRAM</text>
+  <text x="650" y="374" text-anchor="start" font-family="Georgia, serif" font-size="13" font-weight="400" font-style="normal" fill="#5b6770">once the footprint exceeds a tier, the access stream falls through to the next one</text>
+</svg>
